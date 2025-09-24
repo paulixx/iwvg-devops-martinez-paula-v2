@@ -12,7 +12,7 @@
 ### Estado del código
 [![CI](https://github.com/paulixx/iwvg-devops-martinez-paula-v2/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/paulixx/iwvg-devops-martinez-paula-v2/actions/workflows/continuous-integration.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=paulixx_iwvg-devops-martinez-paula-v2&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=paulixx_iwvg-devops-martinez-paula-v2)
-[![Render broken](https://iwvg-devops-latest.onrender.com/version-badge)](https://iwvg-devops-latest.onrender.com/swagger-ui.html)
+[![Render broken](https://iwvg-devops-martinez-paula-v2.onrender.com/version-badge)](https://iwvg-devops-martinez-paula-v2.onrender.com/swagger-ui.html)
 
 
 ### Tecnologías necesarias
