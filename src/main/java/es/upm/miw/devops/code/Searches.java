@@ -38,7 +38,11 @@ public class Searches {
     }
 
     public Fraction findFractionMultiplicationByUserFamilyName(String familyName) {
-        return null;
+        return new UsersDatabase().findAll()
+                .filter(user -> familyName.equals(user.getFamilyName()))
+                .flatMap(user -> user.getFractions().stream())
+                .filter(f -> f != null && f.getDenominator() != 0)
+                .reduce(new Fraction(1, 1), Fraction::multiply);
     }
 
     public Fraction findFirstFractionDivisionByUserId(String id) {

@@ -62,12 +62,16 @@ class SearchesTest {
         assertThat(resultInvalid).isNull();
     }
 
+    @Test
     void testFindFractionMultiplicationByUserFamilyName() {
+        Fraction result = searches.findFractionMultiplicationByUserFamilyName("García"); // apellido existente
+        assertThat(result).isNotNull();
+        assertThat(result.decimal()).isNotZero();
+
+        Fraction resultInvalid = searches.findFractionMultiplicationByUserFamilyName("Inexistente");
+        assertThat(resultInvalid).isNotNull();
+        assertThat(resultInvalid.decimal()).isEqualTo(1.0);
     }
-
-
-
-
 
 
     //Did it in before version
