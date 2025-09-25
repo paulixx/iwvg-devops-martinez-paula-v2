@@ -2,6 +2,7 @@ package es.upm.miw.devops.code;
 
 import org.junit.jupiter.api.Test;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -71,6 +72,21 @@ class SearchesTest {
         Fraction resultInvalid = searches.findFractionMultiplicationByUserFamilyName("Inexistente");
         assertThat(resultInvalid).isNotNull();
         assertThat(resultInvalid.decimal()).isEqualTo(1.0);
+    }
+
+    @Test
+    void testFindUserFamilyNameBySomeImproperFraction() {
+        List<String> result = searches.findUserFamilyNameBySomeImproperFraction()
+                .collect(Collectors.toList());
+
+        assertThat(result).isNotEmpty();
+        assertThat(result).contains("García"); // suponiendo que hay usuarios con fracciones impropias
+
+        List<String> emptyResult = searches.findUserFamilyNameBySomeImproperFraction()
+                .filter(name -> name.equals("Inexistente"))
+                .collect(Collectors.toList());
+
+        assertThat(emptyResult).isEmpty();
     }
 
 
