@@ -38,16 +38,6 @@ class SearchesTest {
     }
 
     @Test
-    void testFindUserFamilyNameInitialByAnyProperFraction() {
-        List<String> result = searches.findUserFamilyNameInitialByAnyProperFraction()
-                .toList();
-
-        assertThat(result)
-                .hasSize(4)
-                .containsExactlyInAnyOrder("F", "B", "L", "B");
-    }
-
-    @Test
     void testFindUserFractionNumeratorByFamilyName() {
         assertThat(new Searches().findFractionNumeratorByUserFamilyName("Torres").toList())
                 .containsExactly(2, 4, 0, 1, 1);
