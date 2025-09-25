@@ -53,11 +53,19 @@ class SearchesTest {
         assertThat(resultInvalid.decimal()).isEqualTo(0.0);
     }
 
+    @Test
     void testFindFractionSubtractionByUserName() {
+        Fraction result = searches.findFractionSubtractionByUserName("Ana"); // nombre existente
+        assertThat(result).isNotNull();
+
+        Fraction resultInvalid = searches.findFractionSubtractionByUserName("Desconocido");
+        assertThat(resultInvalid).isNull();
     }
 
     void testFindFractionMultiplicationByUserFamilyName() {
     }
+
+
 
 
 
