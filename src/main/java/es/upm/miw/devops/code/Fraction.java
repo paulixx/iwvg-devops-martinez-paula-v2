@@ -113,4 +113,6 @@ public class Fraction {
                 ", denominator=" + denominator +
                 '}';
     }
+
+    //This project is in its third version. I got confused by issue #4 and added the features that should have been included at this point. I do a commit with this comment.
 }
