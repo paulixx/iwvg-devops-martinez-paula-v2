@@ -138,6 +138,7 @@ public class Searches {
         return null;
     }
 
+    //This is the search F
     public Fraction findFractionSubtractionByUserName(String name) {
         return new UsersDatabase().findAll()
                 .filter(user -> name.equals(user.getName()))
