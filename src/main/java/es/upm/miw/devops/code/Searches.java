@@ -37,6 +37,14 @@ public class Searches {
         return Stream.empty();
     }
 
+    public Stream<String> findUserFamilyNameBySomeImproperFraction() {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getFractions().stream()
+                        .filter(f -> f != null && f.getDenominator() != 0)
+                        .anyMatch(Fraction::isImproper))
+                .map(User::getFamilyName);
+    }
+
     public Fraction findFractionMultiplicationByUserFamilyName(String familyName) {
         return new UsersDatabase().findAll()
                 .filter(user -> familyName.equals(user.getFamilyName()))
@@ -59,7 +67,6 @@ public class Searches {
                 .findFirst()
                 .orElse(null);
     }
-
 
     public Stream<String> findUserIdByAllProperFraction() {
         return Stream.empty();
