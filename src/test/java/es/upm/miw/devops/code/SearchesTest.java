@@ -18,6 +18,36 @@ class SearchesTest {
     }
 
     @Test
+    void testFindFractionNumeratorByUserFamilyName() {
+        List<Integer> result = searches.findFractionNumeratorByUserFamilyName("Blanco")
+                .toList();
+
+        assertThat(result)
+                .hasSize(7)
+                .containsExactly(2, -1, 2, 4, 0, 0, 0);
+    }
+
+    @Test
+    void testFindUserFamilyNameByFractionDenominator() {
+        List<String> result = searches.findUserFamilyNameByFractionDenominator(1)
+                .toList();
+
+        assertThat(result)
+                .hasSize(4)
+                .containsExactlyInAnyOrder("Fernandez", "Blanco", "Blanco", "Torres");
+    }
+
+    @Test
+    void testFindUserFamilyNameInitialByAnyProperFraction() {
+        List<String> result = searches.findUserFamilyNameInitialByAnyProperFraction()
+                .toList();
+
+        assertThat(result)
+                .hasSize(4)
+                .containsExactlyInAnyOrder("F", "B", "L", "B");
+    }
+
+    @Test
     void testFindUserFractionNumeratorByFamilyName() {
         assertThat(new Searches().findFractionNumeratorByUserFamilyName("Torres").toList())
                 .containsExactly(2, 4, 0, 1, 1);
@@ -29,16 +59,67 @@ class SearchesTest {
                 .containsExactly("López", "Torres");
     }
 
+    @Test
     void testFindUserIdByAnyProperFraction() {
+        assertThat(searches.findUserIdByAnyProperFraction().toList())
+                .isEmpty();
     }
 
+    @Test
+    void testFindUserIdByAllProperFraction() {
+        assertThat(searches.findUserIdByAllProperFraction().toList())
+                .isEmpty();
+    }
+
+    @Test
+    void testFindDecimalImproperFractionByUserName() {
+        assertThat(searches.findDecimalImproperFractionByUserName("user1").toList())
+                .isEmpty();
+    }
+
+    @Test
+    void testFindFirstProperFractionByUserId() {
+        assertThat(searches.findFirstProperFractionByUserId("u1"))
+                .isNull();
+    }
+
+    @Test
+    void testFindFirstFractionDivisionByUserId() {
+        assertThat(searches.findFirstFractionDivisionByUserId("u1"))
+                .isNull();
+    }
+
+    @Test
+    void testFindUserFamilyNameByImproperFraction() {
+        assertThat(searches.findUserFamilyNameByImproperFraction().toList())
+                .isEmpty();
+    }
+
+    @Test
+    void testFindUserFamilyNameByAllNegativeSignFractionDistinct() {
+        assertThat(searches.findUserFamilyNameByAllNegativeSignFractionDistinct().toList())
+                .isEmpty();
+    }
+
+    @Test
+    void testFindDecimalFractionByUserName() {
+        assertThat(searches.findDecimalFractionByUserName("user1").toList())
+                .isEmpty();
+    }
+
+    @Test
+    void testFindFirstFractionSubtractionByUserName() {
+        assertThat(searches.findFirstFractionSubtractionByUserName("user1"))
+                .isNull();
+    }
+
+    @Test
     void testFindUserNameByAnyImproperFraction() {
+        assertThat(searches.findUserNameByAnyImproperFraction().toList())
+                .isEmpty();
     }
 
     void testFindUserFamilyNameByAllSignFractionDistinct() {
-    }
-
-    void testFindDecimalFractionByUserName() {
     }
 
     void testFindDecimalFractionBySignFraction() {
