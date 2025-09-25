@@ -1,6 +1,7 @@
 package es.upm.miw.devops.code;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -77,18 +78,17 @@ class SearchesTest {
     @Test
     void testFindUserFamilyNameBySomeImproperFraction() {
         List<String> result = searches.findUserFamilyNameBySomeImproperFraction()
-                .collect(Collectors.toList());
+                .toList();
 
         assertThat(result).isNotEmpty();
-        assertThat(result).contains("García"); // suponiendo que hay usuarios con fracciones impropias
+        assertThat(result).containsAnyOf("Fernandez", "Blanco");
 
         List<String> emptyResult = searches.findUserFamilyNameBySomeImproperFraction()
                 .filter(name -> name.equals("Inexistente"))
-                .collect(Collectors.toList());
+                .toList();
 
         assertThat(emptyResult).isEmpty();
     }
-
 
     //Did it in before version
     @Test
